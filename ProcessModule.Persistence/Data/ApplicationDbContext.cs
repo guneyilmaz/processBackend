@@ -17,6 +17,10 @@ public class ApplicationDbContext : DbContext
     public DbSet<MenuTranslation> MenuTranslations { get; set; } = null!;
     public DbSet<Company> Companies { get; set; } = null!;
     public DbSet<Workplace> Workplaces { get; set; } = null!;
+    public DbSet<Stok> Stoklar { get; set; } = null!;
+    public DbSet<CariHesap> CariHesaplar { get; set; } = null!;
+    public DbSet<Fatura> Faturalar { get; set; } = null!;
+    public DbSet<FaturaKalem> FaturaKalemleri { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -29,6 +33,10 @@ public class ApplicationDbContext : DbContext
         modelBuilder.ApplyConfiguration(new MenuTranslationConfiguration());
         modelBuilder.ApplyConfiguration(new CompanyConfiguration());
         modelBuilder.ApplyConfiguration(new WorkplaceConfiguration());
+        modelBuilder.ApplyConfiguration(new StokConfiguration());
+        modelBuilder.ApplyConfiguration(new CariHesapConfiguration());
+        modelBuilder.ApplyConfiguration(new FaturaConfiguration());
+        modelBuilder.ApplyConfiguration(new FaturaKalemConfiguration());
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

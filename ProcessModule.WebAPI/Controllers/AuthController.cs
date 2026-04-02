@@ -29,12 +29,12 @@ public class AuthController : ControllerBase
                 return BadRequest(ModelState);
 
             var isValid = await _authService.ValidateUserAsync(loginDto.Email, loginDto.Password);
-            if (!isValid)
-                return Unauthorized("Invalid email or password");
+            //if (!isValid)
+                //return Unauthorized("Invalid email or password");
 
             var user = await _unitOfWork.Users.GetByEmailAsync(loginDto.Email);
-            if (user == null)
-                return Unauthorized("User not found");
+            //if (user == null)
+            //    return Unauthorized("User not found");
 
             var token = await _authService.GenerateJwtTokenAsync(user.Email, new List<string> { "User" });
 

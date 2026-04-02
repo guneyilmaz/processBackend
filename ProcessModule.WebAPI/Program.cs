@@ -45,9 +45,13 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<IWorkplaceRepository, WorkplaceRepository>();
+builder.Services.AddScoped<IStokRepository, StokRepository>();
+builder.Services.AddScoped<ICariHesapRepository, CariHesapRepository>();
+builder.Services.AddScoped<IFaturaRepository, FaturaRepository>();
 
 // Application Services
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IFaturaPdfService, FaturaPdfService>();
 
 // JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
